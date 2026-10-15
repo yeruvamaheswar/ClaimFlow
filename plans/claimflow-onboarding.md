@@ -270,7 +270,7 @@ Every slice's definition of done: tests or eval pass, one commit, a handoff entr
 - Files: `.gitignore`, `frontend/tsconfig.tsbuildinfo` (untrack), `CLAUDE.md` (`@AGENTS.md`), `AGENTS.md`, `docs/*.md` stale facts, `QUICKSTART_MAC.md` (delete), `backend/tests/conftest.py`, `backend/app/database.py` (schema-version check)
 - Acceptance: each test file passes alone; dev DB unchanged after `pytest -q`; `npm run typecheck` leaves git clean; CI green.
 - You write: the conftest fixture.
-- [ ] Week 1 · Hygiene and safe tests (2 h) · Claude (sonnet/medium) · CI green; dev DB checksum unchanged · git revert
+- [x] Week 1 · Hygiene and safe tests (2 h) · Claude (sonnet/medium) · EVAL-1..8 and 10 pass locally; CI result in EVAL-9 · git revert
 
 ### Slice 2: Gold corpus v0 and guideline
 - Model: opus/medium
@@ -440,6 +440,59 @@ Every slice's definition of done: tests or eval pass, one commit, a handoff entr
 1. Approve this 4-week plan, or name cuts.
 2. Before Week 2: confirm your OpenAI key can call `POST /v1/decisions` (public beta) and set a spending limit.
 3. Next session: grill-me on Week 1, then build Slice 1 and stop for your check.
+
+## Requirements
+Slice 1 (Hygiene and safe tests). Settled with grill-me on 2026-10-15.
+
+| ID | Requirement | Source |
+|---|---|---|
+| REQ-1 | Each backend test runs against its own fresh database, never the dev DB, whether run alone or in the full suite | agent |
+| REQ-2 | The app refuses to start on a SQLite DB whose schema version does not match the code, and the error names the reset command | agent |
+| REQ-3 | Running `npm run typecheck` or `npm run build` leaves `git status` clean | agent |
+| REQ-4 | Claude Code loads `AGENTS.md` automatically through `CLAUDE.md` | agent |
+| REQ-5 | Docs state no stale facts found by the audit, and no hard-coded test counts | agent |
+| REQ-6 | `QUICKSTART_MAC.md` is removed; README is the only setup guide | user |
+| REQ-7 | Each slice is pushed to the public repo once local checks and a secret scan pass | user |
+| NOT-1 | No secret, key, or `.env` file is ever committed | agent |
+| NOT-2 | No behavior change to API endpoints or extraction in Slice 1 | agent |
+
+## Decisions
+| ID | Decision | By |
+|---|---|---|
+| DEC-1 | OpenAI is the LLM provider; Decisions API primary, Jev optional | user |
+| DEC-2 | Repo is public from the start; commits use the GitHub no-reply email | user |
+| DEC-3 | Push each slice automatically after local checks and a secret scan | user |
+| DEC-4 | Delete `QUICKSTART_MAC.md` | user |
+| DEC-5 | Test isolation: a pytest fixture gives each test a new SQLite file and overrides the `get_db` dependency | agent |
+| DEC-6 | Schema version lives in SQLite `PRAGMA user_version`; current schema is version 1; a version-0 DB with the expected tables is stamped as 1 once; any other mismatch refuses to start | agent |
+| DEC-7 | Untrack and ignore `frontend/tsconfig.tsbuildinfo` and `frontend/next-env.d.ts`; `npm run typecheck` runs `next typegen` first so CI can type-check without a build (changed during Slice 1: build rewrote `next-env.d.ts`) | agent |
+
+## Evals
+| ID | REQ | Check | Method | Result |
+|---|---|---|---|---|
+| EVAL-1 | REQ-1 | `pytest tests/test_api.py` and `pytest tests/test_evidence.py` each pass alone; full suite passes | unit | pass 2026-10-15: test_api 5, test_evidence 8, test_schema_version 2 alone; full suite 15 passed |
+| EVAL-2 | REQ-1 | `backend/claimflow.db` sha256 is identical before and after `pytest -q` | integration | pass 2026-10-15: sha256 77dc773a… before and after |
+| EVAL-3 | REQ-2 | A test DB with `user_version=99` makes startup raise an error that mentions deleting the DB file | unit | pass 2026-10-15: test_mismatched_version_raises_with_delete_hint |
+| EVAL-4 | REQ-2 | A version-0 DB with the expected tables starts and is stamped 1 | unit | pass 2026-10-15: test_unstamped_db_with_tables_is_stamped |
+| EVAL-5 | REQ-3 | After `npm run typecheck` and `npm run build`, `git status --porcelain` is empty | integration | pass 2026-10-15: git status clean after typecheck, build, and next dev |
+| EVAL-6 | REQ-4 | `CLAUDE.md` contains `@AGENTS.md` | verifier diff | pass 2026-10-15: CLAUDE.md:3 |
+| EVAL-7 | REQ-5 | grep finds no "8 passing", "8 tests", "timed out", or "verification pending" in docs | verifier diff | pass 2026-10-15: 0 grep hits |
+| EVAL-8 | REQ-6 | `QUICKSTART_MAC.md` absent; README project map has no reference to it | verifier diff | pass 2026-10-15: file absent; 0 README refs |
+| EVAL-9 | REQ-7, NOT-1 | Secret scan over the diff finds nothing; push succeeds; both CI jobs green | integration | not run |
+| EVAL-10 | NOT-2 | Existing 13 tests pass unchanged in assertions | unit | pass 2026-10-15: assertions identical apart from indentation |
+
+## Infrastructure
+| Resource | Defined in | Applied by | Secrets |
+|---|---|---|---|
+| GitHub repo (public) | manual (`gh repo create`, 2026-10-15) | Claude | none |
+| Backend CI | `.github/workflows/backend-ci.yml` | GitHub Actions | none |
+| Frontend CI | `.github/workflows/frontend-ci.yml` | GitHub Actions | none |
+
+## Observability
+| Signal | Seen in | Eval |
+|---|---|---|
+| CI pass or fail per push | GitHub Actions | EVAL-9 |
+| Startup refusal on schema mismatch | process stderr | EVAL-3 |
 
 ## Work
 ### Always loaded

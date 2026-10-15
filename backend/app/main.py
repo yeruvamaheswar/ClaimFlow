@@ -9,7 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import select
 from sqlalchemy.orm import Session, selectinload
 
-from .database import Base, engine, get_db
+from .database import Base, check_schema_version, engine, get_db
 from .evidence import extract_facts, generate_findings
 from .models import AuditEvent, Claim, Document
 from .schemas import ClaimCreate, DocumentCreate, ReviewCreate
@@ -23,6 +23,7 @@ if os.getenv("CLAIMFLOW_ENV", "demo") != "demo":
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     Base.metadata.create_all(bind=engine)  # Demo-only bootstrap; replace with migrations later.
+    check_schema_version(engine)
     yield
 
 

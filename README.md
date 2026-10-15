@@ -74,11 +74,14 @@ ClaimFlow/
 ├── AGENTS.md                 Cross-platform coding-agent instructions
 ├── CLAUDE.md                Claude Code entry point
 ├── .cursor/rules/            Cursor rules
+├── plans/                    Live delivery plans
 ├── docs/
 │   ├── PRD.md               Product scope, users, acceptance criteria
 │   ├── architecture.md      Service boundaries and diagram
 │   ├── evaluation-plan.md   What correctness means and how to measure it
 │   ├── security.md          Prototype limitations and threat model
+│   ├── research-notes.md    Background research
+│   ├── agent-handoff.md     Per-slice handoff log
 │   ├── roadmap.md           Sprint plan and milestones
 │   ├── backlog.md           Prioritized engineering work
 │   └── decisions/           Architecture decision records

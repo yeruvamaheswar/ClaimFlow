@@ -1,25 +1,29 @@
 # Agent handoff — ClaimFlow
 
-Read `AGENTS.md`, `README.md`, and `docs/PRD.md` first. Load other files only when the task requires them. Do not automatically call all skills or MCP tools.
+Purpose: record what each slice changed, so the next agent or person can continue. Read `AGENTS.md`, `README.md`, and the live plan first.
 
-## Current verified facts
+Current state (2026-10-15): the frontend builds. CI is green on GitHub. The live plan is `plans/claimflow-onboarding.md`.
 
-- The initial Python backend has 8 passing automated tests.
-- A Next.js TypeScript reviewer interface is written, but its package installation/build did not complete in the authoring environment because npm timed out.
-- The only loaded data is synthetic; external APIs, claims decisions, and LLM calls are absent.
+## Entry template
 
-## Best next task
+```text
+### YYYY-MM-DD — Slice name
+- Files changed:
+- Commands run:
+- Results:
+- Actual hours:
+- Open items:
+```
 
-Run the frontend in a capable local environment and repair any build/runtime issues. Then verify the full user journey: seed synthetic case, read source-backed conflict findings, add a document, record a review note. Take screenshots only after executing the app, not by imagining the UI.
+## Entries
 
-## Cross-platform model usage
-
-- **Claude Code:** use your best available reasoning model for architecture/security review, and a faster coding model for bounded edits when appropriate.
-- **Codex:** use your best available reasoning model for cross-service debugging and test reviews; use standard coding settings for straightforward changes.
-- **Cursor:** route frontend/UI tasks to a coding model with repository context; follow the same `AGENTS.md` rules.
-
-Choose actual provider model IDs **at execution time** based on the user's active plan, current model menu, and task complexity; do not hardcode an unavailable name. When handing off work across platforms, include the exact changed files, commands executed, current test status, and remaining blockers.
+### 2026-10-15 — Slice 1: Hygiene and safe tests
+- Files changed: `backend/tests/conftest.py` (new), `backend/tests/test_api.py`, `backend/tests/test_schema_version.py` (new), `backend/app/database.py`, `backend/app/main.py`, `frontend/package.json` (typecheck runs `next typegen` first), `.gitignore`, `CLAUDE.md`, `AGENTS.md`, `README.md`, `docs/*`. Removed `QUICKSTART_MAC.md`; untracked `frontend/tsconfig.tsbuildinfo` and `frontend/next-env.d.ts` (both generated).
+- Commands run: `ruff check .`, `pytest -q` (full suite and each file alone), `npm run typecheck`, `npm run build`, `next dev`, `git status --porcelain`, `shasum -a 256 backend/claimflow.db`.
+- Results: ruff clean; full suite and each test file pass alone; dev DB checksum unchanged by tests; git clean after typecheck, build, and dev. Tests use a fresh SQLite file per test. Startup refuses a mismatched schema version.
+- Actual hours: about 0.5 (agent-built; review by lead).
+- Open items: each test run still leaves one unused `claimflow_unused_<pid>.db` in the system temp dir (the app's startup hook touches it). Starlette's httpx test-client deprecation warning remains.
 
 ## Safety reminders
 
-Never infer real insurance coverage from the synthetic checklist. Do not put personally identifying data into prompts, traces, fixture files, screenshots, or issue descriptions.
+Never infer real insurance coverage from the synthetic checklist. Do not put personal data into prompts, traces, fixtures, screenshots, or issues.

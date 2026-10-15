@@ -23,9 +23,11 @@ Build an evidence-aware, auditable **synthetic-data-only** insurance workflow de
 
 - Behavior implemented with error handling.
 - Tests cover success and at least one failure or boundary case.
-- Commands executed locally if available (`pytest`, `npm run typecheck`, `npm run build`).
+- Commands executed locally if available (`ruff check .`, `pytest -q`, `npm run typecheck`, `npm run build`).
 - README/docs updated if startup, API contract, or architecture changed.
 - No fabricated results or features in descriptions.
+- Architecture decisions go in `docs/decisions/ADR-NNNN-*.md`.
+- Every slice adds a dated entry to `docs/agent-handoff.md`: files changed, commands run, results, actual hours.
 
 ## Tech baseline
 

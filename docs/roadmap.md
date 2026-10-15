@@ -1,5 +1,7 @@
 # ClaimFlow implementation roadmap
 
+The live plan is [plans/claimflow-onboarding.md](../plans/claimflow-onboarding.md). The sections below are the longer-term outline.
+
 Assumes roughly 10–15 hours of project effort per week. The 15-week structure is indicative, not a delivery guarantee.
 
 ## Sprint 0 — Repository and first working slice (completed in this workspace)
@@ -7,12 +9,12 @@ Assumes roughly 10–15 hours of project effort per week. The 15-week structure 
 - [x] New project directory and starter documentation
 - [x] Python API and SQLite demonstration persistence
 - [x] Synthetic demo case + evidence discrepancy engine
-- [x] Initial automated backend tests (8 passing at creation)
+- [x] Initial automated backend tests (run `pytest -q`)
 - [x] Initial Next.js workspace source and API wiring
 - [x] Cross-platform agent guidance
-- [ ] Verify frontend installation/build on target Mac
+- [x] Verify frontend installation/build (typecheck and build pass, 2026-10-15)
 - [ ] Capture screenshots and review actual UI after launch
-- [ ] Initialize/publish a GitHub repository **only after explicit approval**
+- [x] GitHub repository published
 
 ## Weeks 1–2 — Foundation and requirements refinement
 

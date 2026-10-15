@@ -2,7 +2,7 @@
 
 ## P0 — Next engineering session
 
-1. Run `npm install` and `npm run build` for web UI; address any TypeScript/runtime errors.
+1. ~~Run `npm install` and `npm run build` for web UI.~~ Done 2026-10-15.
 2. Manual browser acceptance check with synthetic demo case; verify responsive layout.
 3. Improve test DB isolation, request logging, structured response schemas, and API error messages.
 4. Implement edit/view for original text evidence (not only extracted field summaries).

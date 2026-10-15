@@ -50,11 +50,11 @@ Real claims; external production integrations; claim settlement or fraud scoring
 | ID | Acceptance criterion | Status |
 |---|---|---|
 | AC-01 | Demo case loads only once and includes four synthetic documents. | Implemented; integration tested |
-| AC-02 | Dates, VINs, and totals are extracted with source line and text. | Implemented; unit tested |
+| AC-02 | Dates, VINs, and totals are extracted with source line and text. | Dates and VINs: implemented and unit tested. Totals: covered only by the seed integration test. |
 | AC-03 | Conflicting source values produce review findings, not silent correction. | Implemented; unit and integration tested |
 | AC-04 | New evidence refreshes case findings. | Implemented; integration tested |
 | AC-05 | Reviewer note is recorded without making a claims decision. | Implemented; integration tested |
-| AC-06 | Local backend and web client are easy to start. | Code implemented; frontend dependency/build verification pending |
+| AC-06 | Local backend and web client are easy to start. | Backend tests pass. Frontend typecheck and build verified 2026-10-15. |
 | AC-07 | Real-user data is protected by production-grade access control. | NOT implemented, required before any real deployment |
 
 ## 8. Later milestones

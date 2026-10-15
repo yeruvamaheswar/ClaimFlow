@@ -52,7 +52,7 @@ flowchart TB
 | POST | `/api/v1/claims/{id}/review` | Save evidence-review note |
 | POST | `/api/v1/demo/seed` | Idempotently create sample |
 
-Use `/docs` on the running backend for typed request/response exploration.
+Use `/docs` on the running backend to explore the endpoints. Response schemas are not yet typed in OpenAPI.
 
 ## Data flows
 

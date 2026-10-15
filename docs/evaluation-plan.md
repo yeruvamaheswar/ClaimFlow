@@ -6,16 +6,16 @@
 
 A benchmark case includes source documents, annotated ground-truth values, expected evidence spans, expected missing-document findings, and expected variance findings.
 
-| Measure | Definition | Initial target (future) |
+| Measure | Definition | Target |
 |---|---|---|
-| Extraction precision | Correct extracted field values / all extracted field values | ≥95% on bounded labeled-text test set |
-| Extraction recall | Correct extracted field values / all labeled fields | ≥95% on bounded labeled-text test set |
-| Source attribution | Extraction results whose filename/line/excerpt match ground truth | ≥98% |
-| Contradiction recall | Expected source-value discrepancies that appear as review findings | ≥95% on defined fixtures |
-| Unauthorized consequential actions | Successful blocked actions in controlled tests | 0 |
-| Duplicate external effects | Duplicated integrations during retry tests | 0 |
-| End-to-end latency | p50/p95 of tested workflows | Measure; no target without baseline |
-| Model cost per case | Total usage expense for successful review | Measure after model integration |
+| Extraction precision | Correct extracted field values / all extracted field values | Set after baseline |
+| Extraction recall | Correct extracted field values / all labeled fields | Set after baseline |
+| Source attribution | Extraction results whose filename/line/excerpt match ground truth | Set after baseline |
+| Contradiction recall | Expected source-value discrepancies that appear as review findings | Set after baseline |
+| Unauthorized consequential actions | Successful blocked actions in controlled tests | 0 (zero tolerance) |
+| Duplicate external effects | Duplicated integrations during retry tests | 0 (zero tolerance) |
+| End-to-end latency | p50/p95 of tested workflows | Set after baseline |
+| Model cost per case | Total usage expense for successful review | Set after baseline |
 
 ## Minimum planned corpus
 
@@ -31,16 +31,7 @@ A benchmark case includes source documents, annotated ground-truth values, expec
 
 ## Existing automated tests
 
-- Source-line extraction.
-- Missing-field abstention.
-- Malicious-looking document text treated as data.
-- Date variance correctly reported.
-- Idempotent seed operation.
-- API scenario creating evidence and recording a review note.
-- Validation of synthetic policy references.
-- API health response.
-
-Run `cd backend && pytest -q`. Passing these initial tests only establishes the specified behaviors; the planned benchmark is not complete.
+See `backend/tests`. Run `cd backend && pytest -q`. Passing these tests only establishes the specified behaviors; the planned benchmark is not complete.
 
 ## Release reporting convention
 
