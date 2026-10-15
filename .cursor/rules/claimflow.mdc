@@ -1,0 +1,6 @@
+---
+description: ClaimFlow application-wide rules
+alwaysApply: true
+---
+
+Read and follow `AGENTS.md` as the source of truth. Keep this rule file small to avoid duplicate context. Only use optional skills, plugins, or MCP tools when a task clearly needs them.

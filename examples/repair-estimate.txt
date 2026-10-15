@@ -1,0 +1,4 @@
+Synthetic repair estimate — example input
+VIN: 4T1BE46K79U654321
+Estimate Total: $2275.00
+Repairs: Bumper, brackets, refinishing.

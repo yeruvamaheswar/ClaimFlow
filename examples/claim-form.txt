@@ -1,0 +1,4 @@
+Synthetic claim form — example input for the text-evidence endpoint
+Incident Date: 2026-09-18
+VIN: 4T1BE46K79U123456
+Statement: Rear bumper collision in a parking lot.
