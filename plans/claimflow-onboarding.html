@@ -210,7 +210,7 @@ footer{margin-top:3.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font
 }
 </style>
 </head>
-<body data-hash="9480575cb9db" data-repo="ClaimFlow">
+<body data-hash="beb391f89217" data-repo="ClaimFlow">
 <script type="text/plain" id="src">---
 kind: audit
 title: ClaimFlow onboarding audit and 4-week plan
@@ -483,7 +483,7 @@ Every slice's definition of done: tests or eval pass, one commit, a handoff entr
 - Files: `.gitignore`, `frontend/tsconfig.tsbuildinfo` (untrack), `CLAUDE.md` (`@AGENTS.md`), `AGENTS.md`, `docs/*.md` stale facts, `QUICKSTART_MAC.md` (delete), `backend/tests/conftest.py`, `backend/app/database.py` (schema-version check)
 - Acceptance: each test file passes alone; dev DB unchanged after `pytest -q`; `npm run typecheck` leaves git clean; CI green.
 - You write: the conftest fixture.
-- [x] Week 1 · Hygiene and safe tests (2 h) · Claude (sonnet/medium) · EVAL-1..8 and 10 pass locally; CI result in EVAL-9 · git revert
+- [x] Week 1 · Hygiene and safe tests (2 h) · Claude (sonnet/medium) · EVAL-1..10 pass; CI green on 56ef2fd · git revert
 
 ### Slice 2: Gold corpus v0 and guideline
 - Model: opus/medium
@@ -691,7 +691,7 @@ Slice 1 (Hygiene and safe tests). Settled with grill-me on 2026-10-15.
 | EVAL-6 | REQ-4 | `CLAUDE.md` contains `@AGENTS.md` | verifier diff | pass 2026-10-15: CLAUDE.md:3 |
 | EVAL-7 | REQ-5 | grep finds no "8 passing", "8 tests", "timed out", or "verification pending" in docs | verifier diff | pass 2026-10-15: 0 grep hits |
 | EVAL-8 | REQ-6 | `QUICKSTART_MAC.md` absent; README project map has no reference to it | verifier diff | pass 2026-10-15: file absent; 0 README refs |
-| EVAL-9 | REQ-7, NOT-1 | Secret scan over the diff finds nothing; push succeeds; both CI jobs green | integration | not run |
+| EVAL-9 | REQ-7, NOT-1 | Secret scan over the diff finds nothing; push succeeds; both CI jobs green | integration | pass 2026-10-15: scan clean; commit 56ef2fd; Backend and Frontend checks green |
 | EVAL-10 | NOT-2 | Existing 13 tests pass unchanged in assertions | unit | pass 2026-10-15: assertions identical apart from indentation |
 
 ## Infrastructure
@@ -742,7 +742,7 @@ Slice 1 (Hygiene and safe tests). Settled with grill-me on 2026-10-15.
     <div><span class="lbl">Status</span><div class="val" id="status"></div></div>
     <div><span class="lbl">Dated</span><div class="val" id="dated"></div></div>
     <div><span class="lbl">Entries done</span><div class="val" id="count"></div></div>
-    <div><span class="lbl">Page</span><div class="val hash">9480575cb9db</div></div>
+    <div><span class="lbl">Page</span><div class="val hash">beb391f89217</div></div>
   </header>
   <div class="layout">
     <nav class="contents" aria-label="Contents"><span class="lbl">Contents</span><ol id="toc"></ol></nav>
@@ -750,7 +750,7 @@ Slice 1 (Hygiene and safe tests). Settled with grill-me on 2026-10-15.
       <div class="gutter" id="gutter" aria-hidden="true"></div>
       <section id="brief" class="sec" style="margin-top:0" aria-label="Brief"></section>
       <div id="sections"></div>
-      <footer>Generated from plans/claimflow-onboarding.md in ClaimFlow by md-view.sh · built 2026-10-15 16:35 · page 9480575cb9db (source + template). Agents: edit claimflow-onboarding.md, then rebuild. Never edit this page.</footer>
+      <footer>Generated from plans/claimflow-onboarding.md in ClaimFlow by md-view.sh · built 2026-10-15 16:36 · page beb391f89217 (source + template). Agents: edit claimflow-onboarding.md, then rebuild. Never edit this page.</footer>
     </main>
   </div>
 </div>

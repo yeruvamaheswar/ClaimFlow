@@ -270,7 +270,7 @@ Every slice's definition of done: tests or eval pass, one commit, a handoff entr
 - Files: `.gitignore`, `frontend/tsconfig.tsbuildinfo` (untrack), `CLAUDE.md` (`@AGENTS.md`), `AGENTS.md`, `docs/*.md` stale facts, `QUICKSTART_MAC.md` (delete), `backend/tests/conftest.py`, `backend/app/database.py` (schema-version check)
 - Acceptance: each test file passes alone; dev DB unchanged after `pytest -q`; `npm run typecheck` leaves git clean; CI green.
 - You write: the conftest fixture.
-- [x] Week 1 · Hygiene and safe tests (2 h) · Claude (sonnet/medium) · EVAL-1..8 and 10 pass locally; CI result in EVAL-9 · git revert
+- [x] Week 1 · Hygiene and safe tests (2 h) · Claude (sonnet/medium) · EVAL-1..10 pass; CI green on 56ef2fd · git revert
 
 ### Slice 2: Gold corpus v0 and guideline
 - Model: opus/medium
@@ -478,7 +478,7 @@ Slice 1 (Hygiene and safe tests). Settled with grill-me on 2026-10-15.
 | EVAL-6 | REQ-4 | `CLAUDE.md` contains `@AGENTS.md` | verifier diff | pass 2026-10-15: CLAUDE.md:3 |
 | EVAL-7 | REQ-5 | grep finds no "8 passing", "8 tests", "timed out", or "verification pending" in docs | verifier diff | pass 2026-10-15: 0 grep hits |
 | EVAL-8 | REQ-6 | `QUICKSTART_MAC.md` absent; README project map has no reference to it | verifier diff | pass 2026-10-15: file absent; 0 README refs |
-| EVAL-9 | REQ-7, NOT-1 | Secret scan over the diff finds nothing; push succeeds; both CI jobs green | integration | not run |
+| EVAL-9 | REQ-7, NOT-1 | Secret scan over the diff finds nothing; push succeeds; both CI jobs green | integration | pass 2026-10-15: scan clean; commit 56ef2fd; Backend and Frontend checks green |
 | EVAL-10 | NOT-2 | Existing 13 tests pass unchanged in assertions | unit | pass 2026-10-15: assertions identical apart from indentation |
 
 ## Infrastructure
