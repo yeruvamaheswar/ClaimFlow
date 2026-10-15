@@ -4,7 +4,7 @@
 
 ClaimFlow is an **independent, synthetic-data-only** portfolio project exploring how insurance case evidence can be assembled, checked, reviewed, and audited. It is **not affiliated with USAA or any insurer** and does **not** make claim coverage, settlement, denial, payment, fraud, or underwriting decisions.
 
-> **Current status — Foundation / vertical slice v0.1:** Tested FastAPI + SQLAlchemy backend and a Next.js reviewer interface implementation (frontend build not yet verified in this environment). The prototype loads one synthetic auto claim, extracts explicitly labeled text fields with source-line references, identifies discrepancies across documents, records review notes, and maintains a basic activity history. **No LLM, PDF upload, RAG, authentication, production audit immutability, or external systems are implemented yet.**
+> **Current status — Foundation / vertical slice v0.1:** Tested FastAPI + SQLAlchemy backend and a Next.js reviewer interface that typechecks and builds (no automated UI tests yet). The prototype loads one synthetic auto claim, extracts explicitly labeled text fields with source-line references, identifies discrepancies across documents, records review notes, and maintains a basic activity history. **No LLM, PDF upload, RAG, authentication, production audit immutability, or external systems are implemented yet.**
 
 ## What you can demonstrate today
 
@@ -48,7 +48,16 @@ Open <http://localhost:3000> and click **Load example claim**. If you use a diff
 ```bash
 cd ClaimFlow/backend
 source .venv/bin/activate
+ruff check .
 pytest -q
+```
+
+### Check the frontend
+
+```bash
+cd ClaimFlow/frontend
+npm run typecheck
+npm run build
 ```
 
 ### Explore without the frontend
@@ -76,7 +85,7 @@ ClaimFlow/
 ├── backend/                 FastAPI endpoints, evidence rules, tests
 ├── frontend/                Next.js reviewer workspace
 ├── examples/                Synthetic input contract examples
-└── .github/workflows/       CI for backend tests
+└── .github/workflows/       CI: backend lint + tests, frontend typecheck + build
 ```
 
 ## Architectural approach
