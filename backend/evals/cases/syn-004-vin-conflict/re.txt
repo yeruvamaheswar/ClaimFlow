@@ -1,0 +1,7 @@
+SYNTHETIC REPAIR ESTIMATE - demonstration only. Not a real estimate.
+Shop: Example Body Works (fictional)
+VIN: 4SYNRT8E3UB400047
+Rear bumper - replace      690.00
+Trunk lid - repair         340.00
+Labor                      520.00
+Estimate Total: $1,550.00

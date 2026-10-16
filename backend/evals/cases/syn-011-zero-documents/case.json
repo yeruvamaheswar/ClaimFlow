@@ -1,0 +1,37 @@
+{
+  "schema_version": "case/1",
+  "case_id": "syn-011-zero-documents",
+  "revision": 1,
+  "split": "holdout",
+  "tags": [
+    "zero_documents",
+    "missing_document"
+  ],
+  "authoring": {
+    "author": "claude-agent (Slice 2)",
+    "reviewed_by": null,
+    "parser_consulted": false,
+    "notes": "Claim intake only. No documents, so no cells."
+  },
+  "claim": {
+    "policy_ref": "SYN-PA-110011",
+    "incident_date": "2026-10-01"
+  },
+  "documents": [],
+  "gold_facts": [],
+  "distractors": [],
+  "must_not_extract": [],
+  "expected_findings": [
+    {
+      "code": "MISSING_DOCUMENTS",
+      "missing_types": [
+        "claim_form",
+        "police_report",
+        "repair_estimate"
+      ]
+    },
+    {
+      "code": "NO_EVIDENCE"
+    }
+  ]
+}

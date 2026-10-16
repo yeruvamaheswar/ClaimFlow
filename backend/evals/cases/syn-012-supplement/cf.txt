@@ -1,0 +1,9 @@
+SYNTHETIC CLAIM FORM - demonstration only. Not a real claim.
+
+| Field            | Entry                         |
+|------------------|-------------------------------|
+| Policy reference | SYN-PA-120012                 |
+| Date of loss     | 12/28/2025                    |
+| Date filed       | 01/04/2026                    |
+| Vehicle VIN      | 5SYNHT1V3EN041012             |
+| Loss type        | Collision with a guardrail    |

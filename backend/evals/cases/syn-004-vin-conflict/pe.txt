@@ -1,0 +1,5 @@
+SYNTHETIC POLICY EXCERPT - demonstration only. Not real coverage.
+Policy: SYN-PA-400044
+Schedule of covered vehicles
+  Unit   Description               Identifier
+  1      2024 Sample Hatchback     4SYNRT8E3UB400044

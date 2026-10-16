@@ -1,0 +1,7 @@
+SYNTHETIC REPAIR ESTIMATE - demonstration only. Not a real estimate.
+Shop: Sample Auto Repair (fictional)
+VIN: 2SYNGF4P8BK010808
+Driver side mirror assembly     265.00
+Paint match                      95.00
+Labor                           120.00
+Estimate Total: $480.00

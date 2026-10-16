@@ -1,0 +1,94 @@
+{
+  "schema_version": "case/1",
+  "case_id": "syn-012-supplement",
+  "revision": 1,
+  "split": "holdout",
+  "tags": [
+    "table",
+    "narrative",
+    "distractor"
+  ],
+  "authoring": {
+    "author": "claude-agent (Slice 2)",
+    "reviewed_by": null,
+    "parser_consulted": false,
+    "notes": "TODO: the user labels this case by hand (DEC-8). Harder: table claim form, report date next to crash date, estimate with an original and a revised total."
+  },
+  "claim": {
+    "policy_ref": "SYN-PA-120012",
+    "incident_date": "2025-12-28"
+  },
+  "documents": [
+    {
+      "doc_id": "cf",
+      "file": "cf.txt",
+      "filename": "claim_form_syn012.txt",
+      "document_type": "claim_form",
+      "sha256": "63e50ce2aa0943d6a66eda0935deaa351363049fc191b0c620b1d60b32214769"
+    },
+    {
+      "doc_id": "pr",
+      "file": "pr.txt",
+      "filename": "police_report_syn012.txt",
+      "document_type": "police_report",
+      "sha256": "4c84734186bf06d5cc26ee7e59327a10d8ce9fbd7401819fd8f6d505fcb5cc3d"
+    },
+    {
+      "doc_id": "re",
+      "file": "re.txt",
+      "filename": "repair_estimate_syn012.txt",
+      "document_type": "repair_estimate",
+      "sha256": "bafdde31422ee4957ff185182867d982de8d08c4b76d74615ff08043cd2bc31d"
+    }
+  ],
+  "gold_facts": [
+    {
+      "doc_id": "cf",
+      "field": "incident_date",
+      "status": "todo"
+    },
+    {
+      "doc_id": "cf",
+      "field": "vehicle_vin",
+      "status": "todo"
+    },
+    {
+      "doc_id": "cf",
+      "field": "estimate_total",
+      "status": "todo"
+    },
+    {
+      "doc_id": "pr",
+      "field": "incident_date",
+      "status": "todo"
+    },
+    {
+      "doc_id": "pr",
+      "field": "vehicle_vin",
+      "status": "todo"
+    },
+    {
+      "doc_id": "pr",
+      "field": "estimate_total",
+      "status": "todo"
+    },
+    {
+      "doc_id": "re",
+      "field": "incident_date",
+      "status": "todo"
+    },
+    {
+      "doc_id": "re",
+      "field": "vehicle_vin",
+      "status": "todo"
+    },
+    {
+      "doc_id": "re",
+      "field": "estimate_total",
+      "status": "todo"
+    }
+  ],
+  "distractors": [],
+  "must_not_extract": [],
+  "expected_findings": "todo"
+}

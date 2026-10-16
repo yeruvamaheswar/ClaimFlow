@@ -1,0 +1,11 @@
+SYNTHETIC REPAIR ESTIMATE - demonstration only. Not a real estimate.
+Example Collision Center (fictional)
+Vehicle: 2SYNHB4C8SL200022
+Estimate written: 2026-09-22
+
+Passenger front door - repair      520.00
+Passenger rear door - repair       430.00
+Refinish                           540.00
+Parts and labor subtotal         1,490.00
+Sales tax                          110.25
+Grand Total ............ $1,600.25 (incl. tax)

@@ -1,0 +1,8 @@
+SYNTHETIC CLAIM FORM - demonstration only. Not a real claim.
+Policy Reference: SYN-PA-200022
+Policyholder: Sample Policyholder B (fictional)
+Date of Loss: September 18, 2026
+Date Reported: September 20, 2026
+Vehicle ID No.: 2SYNHB4C8SL200022
+What happened: While turning left at a light, my car was hit on the
+passenger side.

@@ -1,0 +1,7 @@
+SYNTHETIC REPAIR ESTIMATE - demonstration only. Not a real estimate.
+Shop: Sample Auto Repair (fictional)
+VIN: 3SYNKM6D1TA300033
+Hood - replace                  780.00
+Grille - replace                295.00
+Labor                           450.00
+TOTAL: $1,525.00

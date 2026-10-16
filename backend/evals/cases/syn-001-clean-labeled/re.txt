@@ -1,0 +1,8 @@
+SYNTHETIC REPAIR ESTIMATE - demonstration only. Not a real estimate.
+Shop: Example Body Works (fictional)
+VIN: 1SYNCF2A5RK100011
+Incident Date: 2026-09-02
+Rear bumper cover - replace      640.00
+Paint and refinish               410.00
+Labor                            380.00
+Estimate Total: $1,430.00

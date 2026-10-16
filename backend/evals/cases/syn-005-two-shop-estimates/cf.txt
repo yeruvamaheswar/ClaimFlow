@@ -1,0 +1,6 @@
+SYNTHETIC CLAIM FORM - demonstration only. Not a real claim.
+Policy Reference: SYN-PA-500055
+Incident Date: 2026-06-21
+VIN: 6SYNWD3G9WE500055
+Description: Side-swiped by another vehicle in a parking garage. The other
+driver left a note.

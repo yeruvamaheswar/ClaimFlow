@@ -1,0 +1,6 @@
+SYNTHETIC CLAIM FORM - demonstration only. Not a real claim.
+Policy Reference: SYN-PA-400044
+Incident Date: 2026-07-14
+VIN: 4SYNRT8E3UB400044
+Other driver's vehicle: blue sedan, plate SYN-4471
+Description: Rear-ended at a stop sign.

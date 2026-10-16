@@ -24,6 +24,13 @@ Current state (2026-10-15): the frontend builds. CI is green on GitHub. The live
 - Actual hours: about 0.5 (agent-built; review by lead).
 - Open items: each test run still leaves one unused `claimflow_unused_<pid>.db` in the system temp dir (the app's startup hook touches it). Starlette's httpx test-client deprecation warning remains.
 
+### 2026-10-15 — Slice 2: Gold corpus v0 and guideline
+- Files changed: `backend/evals/__init__.py`, `backend/evals/GUIDELINES.md`, `backend/evals/CHANGELOG.md`, `backend/evals/lint.py`, `backend/evals/anchor.py`, `backend/evals/cases/syn-001..012/` (12 cases), `backend/tests/test_case_files.py`, `backend/pyproject.toml` (pytest `pythonpath`), `.gitattributes` (new), this file.
+- Commands run: `ruff check .`, `pytest -q -rs`, `pytest -q tests/test_case_files.py`, `python -m evals.anchor <case_id>`, `python -m evals.lint`, grep checks for extractor imports and demo VINs, a line-overlap check against `DEMO_DOCS`.
+- Results: 12 cases (8 dev, 4 holdout) lint clean. 3 cases are `todo`; `test_all_cases_labeled` skips and lists them. Negative lint tests fail as expected on a bad quote, offset, hash, CRLF, non-canonical value, missing cell, `must_not_extract` clash, and wrong findings. No `backend/app` changes. The extractor was not run or imported.
+- Actual hours: about 0.5 (agent-built; review by lead).
+- Open items: user labels `syn-007`, `syn-008`, `syn-012` (EVAL-18). Gold not yet reviewed by a second person (`reviewed_by: null`).
+
 ## Safety reminders
 
 Never infer real insurance coverage from the synthetic checklist. Do not put personal data into prompts, traces, fixtures, screenshots, or issues.

@@ -1,0 +1,135 @@
+{
+  "schema_version": "case/1",
+  "case_id": "syn-006-missing-police-report",
+  "revision": 1,
+  "split": "dev",
+  "tags": [
+    "missing_document",
+    "narrative",
+    "synonym_label",
+    "distractor",
+    "consistent"
+  ],
+  "authoring": {
+    "author": "claude-agent (Slice 2)",
+    "reviewed_by": null,
+    "parser_consulted": false,
+    "notes": "Single-vehicle loss with no police report. Facts appear inside sentences."
+  },
+  "claim": {
+    "policy_ref": "SYN-PA-600066",
+    "incident_date": "2026-05-09"
+  },
+  "documents": [
+    {
+      "doc_id": "cf",
+      "file": "cf.txt",
+      "filename": "claim_form_syn006.txt",
+      "document_type": "claim_form",
+      "sha256": "ea2766367edbf4656238a0ee5ef66f2a6e99ec423f2cab6da8fc6eef458dba65"
+    },
+    {
+      "doc_id": "re",
+      "file": "re.txt",
+      "filename": "repair_estimate_syn006.txt",
+      "document_type": "repair_estimate",
+      "sha256": "6f403e5ae26c41cf46cfee523a4aeaae9e110460c81c994da9a9491865de9a3f"
+    }
+  ],
+  "gold_facts": [
+    {
+      "doc_id": "cf",
+      "field": "incident_date",
+      "status": "present",
+      "value": "2026-05-09",
+      "form": "narrative",
+      "mentions": [
+        {
+          "start": 119,
+          "end": 130,
+          "quote": "May 9, 2026"
+        }
+      ]
+    },
+    {
+      "doc_id": "cf",
+      "field": "vehicle_vin",
+      "status": "present",
+      "value": "7SYNPL5H2XF600066",
+      "form": "narrative",
+      "mentions": [
+        {
+          "start": 195,
+          "end": 212,
+          "quote": "7SYNPL5H2XF600066"
+        }
+      ]
+    },
+    {
+      "doc_id": "cf",
+      "field": "estimate_total",
+      "status": "absent"
+    },
+    {
+      "doc_id": "re",
+      "field": "incident_date",
+      "status": "present",
+      "value": "2026-05-09",
+      "form": "synonym_label",
+      "mentions": [
+        {
+          "start": 170,
+          "end": 180,
+          "quote": "05/09/2026"
+        }
+      ]
+    },
+    {
+      "doc_id": "re",
+      "field": "vehicle_vin",
+      "status": "present",
+      "value": "7SYNPL5H2XF600066",
+      "form": "narrative",
+      "mentions": [
+        {
+          "start": 138,
+          "end": 155,
+          "quote": "7SYNPL5H2XF600066"
+        }
+      ]
+    },
+    {
+      "doc_id": "re",
+      "field": "estimate_total",
+      "status": "present",
+      "value": "1120.00",
+      "form": "narrative",
+      "mentions": [
+        {
+          "start": 331,
+          "end": 339,
+          "quote": "1,120.00"
+        }
+      ]
+    }
+  ],
+  "distractors": [
+    {
+      "start": 115,
+      "end": 125,
+      "quote": "05/12/2026",
+      "doc_id": "re",
+      "field": "incident_date",
+      "why": "Date the estimate was prepared, not the date of loss."
+    }
+  ],
+  "must_not_extract": [],
+  "expected_findings": [
+    {
+      "code": "MISSING_DOCUMENTS",
+      "missing_types": [
+        "police_report"
+      ]
+    }
+  ]
+}

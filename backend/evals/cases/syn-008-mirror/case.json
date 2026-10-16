@@ -1,0 +1,92 @@
+{
+  "schema_version": "case/1",
+  "case_id": "syn-008-mirror",
+  "revision": 1,
+  "split": "dev",
+  "tags": [
+    "labeled_iso"
+  ],
+  "authoring": {
+    "author": "claude-agent (Slice 2)",
+    "reviewed_by": null,
+    "parser_consulted": false,
+    "notes": "TODO: the user labels this case by hand (DEC-8). Easy: standard labels throughout."
+  },
+  "claim": {
+    "policy_ref": "SYN-PA-800088",
+    "incident_date": "2026-03-15"
+  },
+  "documents": [
+    {
+      "doc_id": "cf",
+      "file": "cf.txt",
+      "filename": "claim_form_syn008.txt",
+      "document_type": "claim_form",
+      "sha256": "ca744f5c4a276724f88497c19d4903b9d193e08444534f2e3e86716c5ffced0b"
+    },
+    {
+      "doc_id": "pr",
+      "file": "pr.txt",
+      "filename": "police_report_syn008.txt",
+      "document_type": "police_report",
+      "sha256": "6e41c02921f55b1bdbc40315d00d38b0059a95bbd95099199147818080e3c26d"
+    },
+    {
+      "doc_id": "re",
+      "file": "re.txt",
+      "filename": "repair_estimate_syn008.txt",
+      "document_type": "repair_estimate",
+      "sha256": "fd8749f8b68b30208345a532bab260fcca067d03dff1696f108494838dc37f0c"
+    }
+  ],
+  "gold_facts": [
+    {
+      "doc_id": "cf",
+      "field": "incident_date",
+      "status": "todo"
+    },
+    {
+      "doc_id": "cf",
+      "field": "vehicle_vin",
+      "status": "todo"
+    },
+    {
+      "doc_id": "cf",
+      "field": "estimate_total",
+      "status": "todo"
+    },
+    {
+      "doc_id": "pr",
+      "field": "incident_date",
+      "status": "todo"
+    },
+    {
+      "doc_id": "pr",
+      "field": "vehicle_vin",
+      "status": "todo"
+    },
+    {
+      "doc_id": "pr",
+      "field": "estimate_total",
+      "status": "todo"
+    },
+    {
+      "doc_id": "re",
+      "field": "incident_date",
+      "status": "todo"
+    },
+    {
+      "doc_id": "re",
+      "field": "vehicle_vin",
+      "status": "todo"
+    },
+    {
+      "doc_id": "re",
+      "field": "estimate_total",
+      "status": "todo"
+    }
+  ],
+  "distractors": [],
+  "must_not_extract": [],
+  "expected_findings": "todo"
+}

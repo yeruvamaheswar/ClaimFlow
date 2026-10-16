@@ -1,0 +1,8 @@
+SYNTHETIC REPAIR ESTIMATE - demonstration only. Not a real estimate.
+Shop: Example Body Works (fictional)
+VIN: 6SYNWD3G9WE500055
+Driver front door - repair     460.00
+Driver rear door - repair      410.00
+Refinish                       620.00
+Labor                          390.00
+Estimate Total: $1,880.00

@@ -1,0 +1,188 @@
+{
+  "schema_version": "case/1",
+  "case_id": "syn-002-synonym-labels",
+  "revision": 1,
+  "split": "dev",
+  "tags": [
+    "consistent",
+    "synonym_label",
+    "labeled_nonstandard",
+    "narrative",
+    "distractor"
+  ],
+  "authoring": {
+    "author": "claude-agent (Slice 2)",
+    "reviewed_by": null,
+    "parser_consulted": false,
+    "notes": "Consistent facts in non-ISO forms. Report dates, estimate date, and a subtotal sit next to the real values as distractors."
+  },
+  "claim": {
+    "policy_ref": "SYN-PA-200022",
+    "incident_date": "2026-09-18"
+  },
+  "documents": [
+    {
+      "doc_id": "cf",
+      "file": "cf.txt",
+      "filename": "claim_form_syn002.txt",
+      "document_type": "claim_form",
+      "sha256": "bb5f434e019336b4eb8c37fa2628561b6a36a6c768d46d9d87fba1cc801aa6de"
+    },
+    {
+      "doc_id": "pr",
+      "file": "pr.txt",
+      "filename": "police_report_syn002.txt",
+      "document_type": "police_report",
+      "sha256": "1eb5ef51d98891efb005fa7c6e905cb5f6e5e7622e5e715ffb04a093772cb168"
+    },
+    {
+      "doc_id": "re",
+      "file": "re.txt",
+      "filename": "repair_estimate_syn002.txt",
+      "document_type": "repair_estimate",
+      "sha256": "47e1140ca19674c056b861e2d3f895065f0412c19a94fae3f4d53b89f14fb2d5"
+    }
+  ],
+  "gold_facts": [
+    {
+      "doc_id": "cf",
+      "field": "incident_date",
+      "status": "present",
+      "value": "2026-09-18",
+      "form": "synonym_label",
+      "mentions": [
+        {
+          "start": 155,
+          "end": 173,
+          "quote": "September 18, 2026"
+        }
+      ]
+    },
+    {
+      "doc_id": "cf",
+      "field": "vehicle_vin",
+      "status": "present",
+      "value": "2SYNHB4C8SL200022",
+      "form": "synonym_label",
+      "mentions": [
+        {
+          "start": 224,
+          "end": 241,
+          "quote": "2SYNHB4C8SL200022"
+        }
+      ]
+    },
+    {
+      "doc_id": "cf",
+      "field": "estimate_total",
+      "status": "absent"
+    },
+    {
+      "doc_id": "pr",
+      "field": "incident_date",
+      "status": "present",
+      "value": "2026-09-18",
+      "form": "labeled_nonstandard",
+      "mentions": [
+        {
+          "start": 136,
+          "end": 146,
+          "quote": "09/18/2026"
+        },
+        {
+          "start": 220,
+          "end": 236,
+          "quote": "Sept. 18th, 2026"
+        }
+      ]
+    },
+    {
+      "doc_id": "pr",
+      "field": "vehicle_vin",
+      "status": "present",
+      "value": "2SYNHB4C8SL200022",
+      "form": "synonym_label",
+      "mentions": [
+        {
+          "start": 165,
+          "end": 182,
+          "quote": "2SYNHB4C8SL200022"
+        }
+      ]
+    },
+    {
+      "doc_id": "pr",
+      "field": "estimate_total",
+      "status": "absent"
+    },
+    {
+      "doc_id": "re",
+      "field": "incident_date",
+      "status": "absent"
+    },
+    {
+      "doc_id": "re",
+      "field": "vehicle_vin",
+      "status": "present",
+      "value": "2SYNHB4C8SL200022",
+      "form": "synonym_label",
+      "mentions": [
+        {
+          "start": 115,
+          "end": 132,
+          "quote": "2SYNHB4C8SL200022"
+        }
+      ]
+    },
+    {
+      "doc_id": "re",
+      "field": "estimate_total",
+      "status": "present",
+      "value": "1600.25",
+      "form": "synonym_label",
+      "mentions": [
+        {
+          "start": 399,
+          "end": 407,
+          "quote": "1,600.25"
+        }
+      ]
+    }
+  ],
+  "distractors": [
+    {
+      "start": 189,
+      "end": 207,
+      "quote": "September 20, 2026",
+      "doc_id": "cf",
+      "field": "incident_date",
+      "why": "Date the loss was reported, not the date of loss."
+    },
+    {
+      "start": 110,
+      "end": 120,
+      "quote": "09/19/2026",
+      "doc_id": "pr",
+      "field": "incident_date",
+      "why": "Police report date, not the date of loss."
+    },
+    {
+      "start": 151,
+      "end": 161,
+      "quote": "2026-09-22",
+      "doc_id": "re",
+      "field": "incident_date",
+      "why": "Date the estimate was written, not the date of loss."
+    },
+    {
+      "start": 322,
+      "end": 330,
+      "quote": "1,490.00",
+      "doc_id": "re",
+      "field": "estimate_total",
+      "why": "Pre-tax subtotal; the final stated total is the Grand Total."
+    }
+  ],
+  "must_not_extract": [],
+  "expected_findings": []
+}

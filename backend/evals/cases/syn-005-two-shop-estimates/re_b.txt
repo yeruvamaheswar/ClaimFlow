@@ -1,0 +1,13 @@
+SYNTHETIC REPAIR ESTIMATE - demonstration only. Not a real estimate.
+Sample Collision Group (fictional) - second opinion
+Vehicle VIN: 6SYNWD3G9WE500055
+
+| Line | Item                         | Amount   |
+|------|------------------------------|----------|
+| 1    | Driver front door - replace  | 910.00   |
+| 2    | Driver rear door - repair    | 380.00   |
+| 3    | Refinish                     | 560.00   |
+| 4    | Labor                        | 420.00   |
+|      | Subtotal                     | 2,270.00 |
+|      | Tax                          | 147.55   |
+|      | Total                        | 2,417.55 |

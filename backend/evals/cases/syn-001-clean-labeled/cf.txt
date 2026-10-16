@@ -1,0 +1,6 @@
+SYNTHETIC CLAIM FORM - demonstration only. Not a real claim.
+Policy Reference: SYN-PA-100011
+Claimant: Sample Claimant A (fictional)
+Incident Date: 2026-09-02
+VIN: 1SYNCF2A5RK100011
+Description: Rear bumper struck while parked in a store lot. No injuries.

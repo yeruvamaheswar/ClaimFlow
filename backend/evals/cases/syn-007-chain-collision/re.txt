@@ -1,0 +1,9 @@
+SYNTHETIC REPAIR ESTIMATE - demonstration only. Not a real estimate.
+Example Collision Center (fictional)
+VIN: 8SYNTR7J4YG700077
+Front bumper - replace          720.00
+Rear bumper - replace           690.00
+Labor                           610.00
+Total before tax              2,020.00
+Tax (7%)                        141.40
+Total                         2,161.40

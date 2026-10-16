@@ -1,0 +1,7 @@
+SYNTHETIC POLICE REPORT - demonstration only. Not a real report.
+Report Number: SYN-PR-2026-0411
+Incident Date: 2026-09-02
+Location: Parking lot, 100 Example Avenue, Sampletown
+Vehicle 1 VIN: 1SYNCF2A5RK100011
+Narrative: Vehicle 1 was parked and unoccupied. An unidentified vehicle
+struck the rear bumper and left the lot.

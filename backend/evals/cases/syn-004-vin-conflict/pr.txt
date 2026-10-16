@@ -1,0 +1,11 @@
+SYNTHETIC POLICE REPORT - demonstration only. Not a real report.
+Report Number: SYN-PR-2026-0714
+Incident Date: 2026-07-14
+
+VEHICLE 1 (insured driver)
+VIN: 4SYNRT8E3UB400044
+
+VEHICLE 2 (other party)
+VIN: 5SYNXV2F7VC900099
+
+Narrative: Vehicle 2 struck Vehicle 1 from behind while Vehicle 1 was stopped.

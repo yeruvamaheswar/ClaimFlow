@@ -1,0 +1,9 @@
+SYNTHETIC POLICE REPORT - demonstration only. Not a real report.
+Report Number: SYN-PR-2026-0427
+Date/Time of Crash: 04/27/2026 08:15
+Date of Report: 04/28/2026
+Vehicle 2 VIN: 8SYNTR7J4YG700077
+Vehicle 1 VIN: 9SYNAB3K6ZH800088
+Vehicle 3 VIN: 1SYNLM9N2AJ900091
+Narrative: Three-vehicle chain collision. Vehicle 1 struck Vehicle 2, which
+struck Vehicle 3.

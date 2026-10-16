@@ -1,0 +1,93 @@
+{
+  "schema_version": "case/1",
+  "case_id": "syn-007-chain-collision",
+  "revision": 1,
+  "split": "dev",
+  "tags": [
+    "narrative",
+    "distractor"
+  ],
+  "authoring": {
+    "author": "claude-agent (Slice 2)",
+    "reviewed_by": null,
+    "parser_consulted": false,
+    "notes": "TODO: the user labels this case by hand (DEC-8). Medium difficulty: narrative date and VIN, three VINs in the police report, report date, pre-tax total."
+  },
+  "claim": {
+    "policy_ref": "SYN-PA-700077",
+    "incident_date": "2026-04-27"
+  },
+  "documents": [
+    {
+      "doc_id": "cf",
+      "file": "cf.txt",
+      "filename": "claim_form_syn007.txt",
+      "document_type": "claim_form",
+      "sha256": "393fa7dca6586d5ae9f537314d81a69df20c290a594c07e1f96f9ff72ec4f9a0"
+    },
+    {
+      "doc_id": "pr",
+      "file": "pr.txt",
+      "filename": "police_report_syn007.txt",
+      "document_type": "police_report",
+      "sha256": "018a8e007b59967b50d846934c00ee0dec0e0cfc9bc7a11599ed56f84b1254fe"
+    },
+    {
+      "doc_id": "re",
+      "file": "re.txt",
+      "filename": "repair_estimate_syn007.txt",
+      "document_type": "repair_estimate",
+      "sha256": "1971043f8eaf55d0fa5d5a4bbaecb45b3e63bbdfded588a0c62271ed07150a95"
+    }
+  ],
+  "gold_facts": [
+    {
+      "doc_id": "cf",
+      "field": "incident_date",
+      "status": "todo"
+    },
+    {
+      "doc_id": "cf",
+      "field": "vehicle_vin",
+      "status": "todo"
+    },
+    {
+      "doc_id": "cf",
+      "field": "estimate_total",
+      "status": "todo"
+    },
+    {
+      "doc_id": "pr",
+      "field": "incident_date",
+      "status": "todo"
+    },
+    {
+      "doc_id": "pr",
+      "field": "vehicle_vin",
+      "status": "todo"
+    },
+    {
+      "doc_id": "pr",
+      "field": "estimate_total",
+      "status": "todo"
+    },
+    {
+      "doc_id": "re",
+      "field": "incident_date",
+      "status": "todo"
+    },
+    {
+      "doc_id": "re",
+      "field": "vehicle_vin",
+      "status": "todo"
+    },
+    {
+      "doc_id": "re",
+      "field": "estimate_total",
+      "status": "todo"
+    }
+  ],
+  "distractors": [],
+  "must_not_extract": [],
+  "expected_findings": "todo"
+}

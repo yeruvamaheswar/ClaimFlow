@@ -1,0 +1,204 @@
+{
+  "schema_version": "case/1",
+  "case_id": "syn-004-vin-conflict",
+  "revision": 1,
+  "split": "dev",
+  "tags": [
+    "vin_conflict",
+    "distractor",
+    "table",
+    "policy_excerpt"
+  ],
+  "authoring": {
+    "author": "claude-agent (Slice 2)",
+    "reviewed_by": null,
+    "parser_consulted": false,
+    "notes": "The estimate VIN differs from the others in the last character. Gold records the VIN as written. The police report also lists the other party's VIN."
+  },
+  "claim": {
+    "policy_ref": "SYN-PA-400044",
+    "incident_date": "2026-07-14"
+  },
+  "documents": [
+    {
+      "doc_id": "cf",
+      "file": "cf.txt",
+      "filename": "claim_form_syn004.txt",
+      "document_type": "claim_form",
+      "sha256": "fb64d7041ad8f8fdda75122d1759bd65956c8874b4b3f74d7c4fe214655365cf"
+    },
+    {
+      "doc_id": "pr",
+      "file": "pr.txt",
+      "filename": "police_report_syn004.txt",
+      "document_type": "police_report",
+      "sha256": "d971eca23ddbd559dab1ac2e4e2dc6022f44a7eda21f39aea575277209375ea4"
+    },
+    {
+      "doc_id": "pe",
+      "file": "pe.txt",
+      "filename": "policy_excerpt_syn004.txt",
+      "document_type": "policy_excerpt",
+      "sha256": "9e4699532f818546058135b52eeb5998cbf404644fedeebca9b3704ee1b03cd8"
+    },
+    {
+      "doc_id": "re",
+      "file": "re.txt",
+      "filename": "repair_estimate_syn004.txt",
+      "document_type": "repair_estimate",
+      "sha256": "62d30c1798722dc5a0bf60ac2a42b01a2fef64cdaa6660dce166aacc7afddda2"
+    }
+  ],
+  "gold_facts": [
+    {
+      "doc_id": "cf",
+      "field": "incident_date",
+      "status": "present",
+      "value": "2026-07-14",
+      "form": "labeled_iso",
+      "mentions": [
+        {
+          "start": 108,
+          "end": 118,
+          "quote": "2026-07-14"
+        }
+      ]
+    },
+    {
+      "doc_id": "cf",
+      "field": "vehicle_vin",
+      "status": "present",
+      "value": "4SYNRT8E3UB400044",
+      "form": "labeled_iso",
+      "mentions": [
+        {
+          "start": 124,
+          "end": 141,
+          "quote": "4SYNRT8E3UB400044"
+        }
+      ]
+    },
+    {
+      "doc_id": "cf",
+      "field": "estimate_total",
+      "status": "absent"
+    },
+    {
+      "doc_id": "pr",
+      "field": "incident_date",
+      "status": "present",
+      "value": "2026-07-14",
+      "form": "labeled_iso",
+      "mentions": [
+        {
+          "start": 112,
+          "end": 122,
+          "quote": "2026-07-14"
+        }
+      ]
+    },
+    {
+      "doc_id": "pr",
+      "field": "vehicle_vin",
+      "status": "present",
+      "value": "4SYNRT8E3UB400044",
+      "form": "labeled_iso",
+      "mentions": [
+        {
+          "start": 156,
+          "end": 173,
+          "quote": "4SYNRT8E3UB400044"
+        }
+      ]
+    },
+    {
+      "doc_id": "pr",
+      "field": "estimate_total",
+      "status": "absent"
+    },
+    {
+      "doc_id": "pe",
+      "field": "incident_date",
+      "status": "absent"
+    },
+    {
+      "doc_id": "pe",
+      "field": "vehicle_vin",
+      "status": "present",
+      "value": "4SYNRT8E3UB400044",
+      "form": "table",
+      "mentions": [
+        {
+          "start": 198,
+          "end": 215,
+          "quote": "4SYNRT8E3UB400044"
+        }
+      ]
+    },
+    {
+      "doc_id": "pe",
+      "field": "estimate_total",
+      "status": "absent"
+    },
+    {
+      "doc_id": "re",
+      "field": "incident_date",
+      "status": "absent"
+    },
+    {
+      "doc_id": "re",
+      "field": "vehicle_vin",
+      "status": "present",
+      "value": "4SYNRT8E3UB400047",
+      "form": "labeled_iso",
+      "mentions": [
+        {
+          "start": 111,
+          "end": 128,
+          "quote": "4SYNRT8E3UB400047"
+        }
+      ]
+    },
+    {
+      "doc_id": "re",
+      "field": "estimate_total",
+      "status": "present",
+      "value": "1550.00",
+      "form": "labeled_iso",
+      "mentions": [
+        {
+          "start": 248,
+          "end": 256,
+          "quote": "1,550.00"
+        }
+      ]
+    }
+  ],
+  "distractors": [
+    {
+      "start": 204,
+      "end": 221,
+      "quote": "5SYNXV2F7VC900099",
+      "doc_id": "pr",
+      "field": "vehicle_vin",
+      "why": "VIN of the other party's vehicle, not the insured vehicle."
+    }
+  ],
+  "must_not_extract": [
+    {
+      "field": "vehicle_vin",
+      "value": "5SYNXV2F7VC900099",
+      "why": "Other party's VIN must never be reported as the insured VIN."
+    }
+  ],
+  "expected_findings": [
+    {
+      "code": "VEHICLE_VIN_VARIANCE",
+      "field": "vehicle_vin",
+      "values": [
+        "4SYNRT8E3UB400044",
+        "4SYNRT8E3UB400047"
+      ]
+    }
+  ]
+}

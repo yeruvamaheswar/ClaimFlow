@@ -1,0 +1,7 @@
+SYNTHETIC REPAIR ESTIMATE - demonstration only. Not a real estimate.
+Shop: Sample Auto Repair (fictional)
+Prepared 05/12/2026 for vehicle 7SYNPL5H2XF600066 (date of loss 05/09/2026).
+Rear quarter panel - repair     540.00
+Refinish                        310.00
+Labor                           270.00
+Amount due for this repair is $1,120.00.

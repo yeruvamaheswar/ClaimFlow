@@ -210,7 +210,7 @@ footer{margin-top:3.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font
 }
 </style>
 </head>
-<body data-hash="beb391f89217" data-repo="ClaimFlow">
+<body data-hash="0a929d8cff6a" data-repo="ClaimFlow">
 <script type="text/plain" id="src">---
 kind: audit
 title: ClaimFlow onboarding audit and 4-week plan
@@ -492,7 +492,8 @@ Every slice's definition of done: tests or eval pass, one commit, a handoff entr
 - Scope: 12 cases written before the parser runs on them: ≥4 forms the regex was not written for, conflicts, a distractor, an unclear date, a missing document, an injection with `must_not_extract`. Split: 8 dev, 4 holdout.
 - Acceptance: lint passes (every cell labeled, offsets round-trip, hashes match); you labeled ≥3 cases.
 - You write: 3 cases by hand.
-- [ ] Week 1 · Gold corpus v0 (6 h) · Claude (opus/medium) · lint test passes · git revert
+- [x] Week 1 · Gold corpus v0 (6 h) · Claude (opus/medium) · EVAL-11..17 pass; 9 of 12 cases labeled · git revert
+- [ ] Label syn-007, syn-008, syn-012 by hand (EVAL-18) · user · `pytest -q -rs` shows no todo skip · git revert
 
 ### Slice 3: Scorer and rule:v0 baseline
 - Model: sonnet/medium
@@ -666,6 +667,13 @@ Slice 1 (Hygiene and safe tests). Settled with grill-me on 2026-10-15.
 | REQ-5 | Docs state no stale facts found by the audit, and no hard-coded test counts | agent |
 | REQ-6 | `QUICKSTART_MAC.md` is removed; README is the only setup guide | user |
 | REQ-7 | Each slice is pushed to the public repo once local checks and a secret scan pass | user |
+| REQ-8 | 12 gold cases exist, 8 dev and 4 holdout, each with documents, claim intake, gold facts per (document, field) cell, distractors, `must_not_extract`, and expected findings | agent |
+| REQ-9 | Field definitions follow the guideline: incident date = date of loss; VIN = insured vehicle only; estimate total = final stated total; numeric slash dates are US MM/DD; indeterminate = no single value in the text | user |
+| REQ-10 | At least 4 cases use surface forms the current regex was not written for | agent |
+| REQ-11 | Gold is written without running or importing the extractor | agent |
+| REQ-12 | 3 cases have documents but gold marked `todo`, for the user to label by hand | user |
+| REQ-13 | A lint test checks every case: every cell labeled, `text[start:end] == quote`, document hashes match, values canonical | agent |
+| NOT-3 | No case reuses `DEMO_DOCS` text, and no case contains real names, VINs, or policy numbers | agent |
 | NOT-1 | No secret, key, or `.env` file is ever committed | agent |
 | NOT-2 | No behavior change to API endpoints or extraction in Slice 1 | agent |
 
@@ -679,6 +687,11 @@ Slice 1 (Hygiene and safe tests). Settled with grill-me on 2026-10-15.
 | DEC-5 | Test isolation: a pytest fixture gives each test a new SQLite file and overrides the `get_db` dependency | agent |
 | DEC-6 | Schema version lives in SQLite `PRAGMA user_version`; current schema is version 1; a version-0 DB with the expected tables is stamped as 1 once; any other mismatch refuses to start | agent |
 | DEC-7 | Untrack and ignore `frontend/tsconfig.tsbuildinfo` and `frontend/next-env.d.ts`; `npm run typecheck` runs `next typegen` first so CI can type-check without a build (changed during Slice 1: build rewrote `next-env.d.ts`) | agent |
+| DEC-8 | User labels 3 cases after the build; the agent leaves them as `todo` | user |
+| DEC-9 | Field definitions as in REQ-9 | user |
+| DEC-10 | v0 covers only the 3 existing fields | agent |
+| DEC-11 | Case format `case/1`: one folder per case with `case.json` and LF-only `.txt` documents; offsets are Python code-point offsets of the value, end exclusive | agent |
+| DEC-12 | `todo` cells make the "all cases labeled" test skip with the pending case IDs, so CI shows them instead of failing | agent |
 
 ## Evals
 | ID | REQ | Check | Method | Result |
@@ -693,6 +706,14 @@ Slice 1 (Hygiene and safe tests). Settled with grill-me on 2026-10-15.
 | EVAL-8 | REQ-6 | `QUICKSTART_MAC.md` absent; README project map has no reference to it | verifier diff | pass 2026-10-15: file absent; 0 README refs |
 | EVAL-9 | REQ-7, NOT-1 | Secret scan over the diff finds nothing; push succeeds; both CI jobs green | integration | pass 2026-10-15: scan clean; commit 56ef2fd; Backend and Frontend checks green |
 | EVAL-10 | NOT-2 | Existing 13 tests pass unchanged in assertions | unit | pass 2026-10-15: assertions identical apart from indentation |
+| EVAL-11 | REQ-8 | 12 case folders; `split` counts are 8 dev and 4 holdout | unit | pass 2026-10-15: 8 dev, 4 holdout |
+| EVAL-12 | REQ-13 | `pytest tests/test_case_files.py` passes on all labeled cases | unit | pass 2026-10-15: 27 passed in test_case_files.py |
+| EVAL-13 | REQ-13 | Breaking one quote, one hash, or one canonical value makes the lint fail (shown once each) | unit | pass 2026-10-15: bad quote, offsets, hash, CRLF, 5 non-canonical values, missing cell, must_not_extract, wrong findings all rejected |
+| EVAL-14 | REQ-10 | ≥4 cases carry a non-`labeled_iso` form tag on a present cell | verifier diff | pass 2026-10-15: 6 cases |
+| EVAL-15 | REQ-11 | `backend/evals` does not import `app.evidence`; every case has `parser_consulted: false` | verifier diff | pass 2026-10-15: 0 extractor imports; all parser_consulted false |
+| EVAL-16 | REQ-12 | Exactly 3 cases are `todo`; the "all labeled" test reports them as skipped | unit | pass 2026-10-15: syn-007, syn-008, syn-012 reported as skipped |
+| EVAL-17 | NOT-3 | grep finds no `DEMO_DOCS` lines or demo VINs in `backend/evals/cases` | verifier diff | pass 2026-10-15: 0 hits |
+| EVAL-18 | REQ-12 | User fills the 3 `todo` cases and the "all labeled" test passes | human | not run |
 
 ## Infrastructure
 | Resource | Defined in | Applied by | Secrets |
@@ -742,7 +763,7 @@ Slice 1 (Hygiene and safe tests). Settled with grill-me on 2026-10-15.
     <div><span class="lbl">Status</span><div class="val" id="status"></div></div>
     <div><span class="lbl">Dated</span><div class="val" id="dated"></div></div>
     <div><span class="lbl">Entries done</span><div class="val" id="count"></div></div>
-    <div><span class="lbl">Page</span><div class="val hash">beb391f89217</div></div>
+    <div><span class="lbl">Page</span><div class="val hash">0a929d8cff6a</div></div>
   </header>
   <div class="layout">
     <nav class="contents" aria-label="Contents"><span class="lbl">Contents</span><ol id="toc"></ol></nav>
@@ -750,7 +771,7 @@ Slice 1 (Hygiene and safe tests). Settled with grill-me on 2026-10-15.
       <div class="gutter" id="gutter" aria-hidden="true"></div>
       <section id="brief" class="sec" style="margin-top:0" aria-label="Brief"></section>
       <div id="sections"></div>
-      <footer>Generated from plans/claimflow-onboarding.md in ClaimFlow by md-view.sh · built 2026-10-15 16:36 · page beb391f89217 (source + template). Agents: edit claimflow-onboarding.md, then rebuild. Never edit this page.</footer>
+      <footer>Generated from plans/claimflow-onboarding.md in ClaimFlow by md-view.sh · built 2026-10-15 19:05 · page 0a929d8cff6a (source + template). Agents: edit claimflow-onboarding.md, then rebuild. Never edit this page.</footer>
     </main>
   </div>
 </div>

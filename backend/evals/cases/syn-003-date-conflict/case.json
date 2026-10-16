@@ -1,0 +1,157 @@
+{
+  "schema_version": "case/1",
+  "case_id": "syn-003-date-conflict",
+  "revision": 1,
+  "split": "dev",
+  "tags": [
+    "date_conflict",
+    "narrative",
+    "synonym_label"
+  ],
+  "authoring": {
+    "author": "claude-agent (Slice 2)",
+    "reviewed_by": null,
+    "parser_consulted": false,
+    "notes": "Cross-document date conflict: claimant says August 2, the police report says 08/03 (officer arrived after midnight). Gold keeps each document's own value."
+  },
+  "claim": {
+    "policy_ref": "SYN-PA-300033",
+    "incident_date": "2026-08-02"
+  },
+  "documents": [
+    {
+      "doc_id": "cf",
+      "file": "cf.txt",
+      "filename": "claim_form_syn003.txt",
+      "document_type": "claim_form",
+      "sha256": "3a796197d575f70e8c9224511f2c5296564d72cb22cf7d6b7c31485fd11fe627"
+    },
+    {
+      "doc_id": "pr",
+      "file": "pr.txt",
+      "filename": "police_report_syn003.txt",
+      "document_type": "police_report",
+      "sha256": "7c2a09abd440f8e9ba3cde1128a911c4cf2674cf90e4f074a04220e06f31839e"
+    },
+    {
+      "doc_id": "re",
+      "file": "re.txt",
+      "filename": "repair_estimate_syn003.txt",
+      "document_type": "repair_estimate",
+      "sha256": "dd764e48763aa1f2935599f52de1f1e82a0ff136d147b20f1c382af4d45f609c"
+    }
+  ],
+  "gold_facts": [
+    {
+      "doc_id": "cf",
+      "field": "incident_date",
+      "status": "present",
+      "value": "2026-08-02",
+      "form": "narrative",
+      "mentions": [
+        {
+          "start": 180,
+          "end": 194,
+          "quote": "August 2, 2026"
+        }
+      ]
+    },
+    {
+      "doc_id": "cf",
+      "field": "vehicle_vin",
+      "status": "present",
+      "value": "3SYNKM6D1TA300033",
+      "form": "labeled_iso",
+      "mentions": [
+        {
+          "start": 114,
+          "end": 131,
+          "quote": "3SYNKM6D1TA300033"
+        }
+      ]
+    },
+    {
+      "doc_id": "cf",
+      "field": "estimate_total",
+      "status": "absent"
+    },
+    {
+      "doc_id": "pr",
+      "field": "incident_date",
+      "status": "present",
+      "value": "2026-08-03",
+      "form": "synonym_label",
+      "mentions": [
+        {
+          "start": 115,
+          "end": 125,
+          "quote": "08/03/2026"
+        }
+      ]
+    },
+    {
+      "doc_id": "pr",
+      "field": "vehicle_vin",
+      "status": "present",
+      "value": "3SYNKM6D1TA300033",
+      "form": "labeled_iso",
+      "mentions": [
+        {
+          "start": 131,
+          "end": 148,
+          "quote": "3SYNKM6D1TA300033"
+        }
+      ]
+    },
+    {
+      "doc_id": "pr",
+      "field": "estimate_total",
+      "status": "absent"
+    },
+    {
+      "doc_id": "re",
+      "field": "incident_date",
+      "status": "absent"
+    },
+    {
+      "doc_id": "re",
+      "field": "vehicle_vin",
+      "status": "present",
+      "value": "3SYNKM6D1TA300033",
+      "form": "labeled_iso",
+      "mentions": [
+        {
+          "start": 111,
+          "end": 128,
+          "quote": "3SYNKM6D1TA300033"
+        }
+      ]
+    },
+    {
+      "doc_id": "re",
+      "field": "estimate_total",
+      "status": "present",
+      "value": "1525.00",
+      "form": "labeled_iso",
+      "mentions": [
+        {
+          "start": 254,
+          "end": 262,
+          "quote": "1,525.00"
+        }
+      ]
+    }
+  ],
+  "distractors": [],
+  "must_not_extract": [],
+  "expected_findings": [
+    {
+      "code": "INCIDENT_DATE_VARIANCE",
+      "field": "incident_date",
+      "values": [
+        "2026-08-02",
+        "2026-08-03"
+      ]
+    }
+  ]
+}

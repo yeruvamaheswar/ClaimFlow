@@ -1,0 +1,156 @@
+{
+  "schema_version": "case/1",
+  "case_id": "syn-001-clean-labeled",
+  "revision": 1,
+  "split": "dev",
+  "tags": [
+    "consistent",
+    "labeled_iso"
+  ],
+  "authoring": {
+    "author": "claude-agent (Slice 2)",
+    "reviewed_by": null,
+    "parser_consulted": false,
+    "notes": "Baseline: every field uses a standard label and ISO-style value. No conflicts."
+  },
+  "claim": {
+    "policy_ref": "SYN-PA-100011",
+    "incident_date": "2026-09-02"
+  },
+  "documents": [
+    {
+      "doc_id": "cf",
+      "file": "cf.txt",
+      "filename": "claim_form_syn001.txt",
+      "document_type": "claim_form",
+      "sha256": "0b3ae0b5394d725ee37b7fdd05bcd1e8138e9fb813ca81956af400808ec3bde0"
+    },
+    {
+      "doc_id": "pr",
+      "file": "pr.txt",
+      "filename": "police_report_syn001.txt",
+      "document_type": "police_report",
+      "sha256": "870bbfbf70d7c2420019eb32b0f83f65df8639f664e717964c380e41ba5cb05d"
+    },
+    {
+      "doc_id": "re",
+      "file": "re.txt",
+      "filename": "repair_estimate_syn001.txt",
+      "document_type": "repair_estimate",
+      "sha256": "1618833f7b3aca17d6e13d07a0412c32f6652df49667539e8a7ad5e5438b3cff"
+    }
+  ],
+  "gold_facts": [
+    {
+      "doc_id": "cf",
+      "field": "incident_date",
+      "status": "present",
+      "value": "2026-09-02",
+      "form": "labeled_iso",
+      "mentions": [
+        {
+          "start": 148,
+          "end": 158,
+          "quote": "2026-09-02"
+        }
+      ]
+    },
+    {
+      "doc_id": "cf",
+      "field": "vehicle_vin",
+      "status": "present",
+      "value": "1SYNCF2A5RK100011",
+      "form": "labeled_iso",
+      "mentions": [
+        {
+          "start": 164,
+          "end": 181,
+          "quote": "1SYNCF2A5RK100011"
+        }
+      ]
+    },
+    {
+      "doc_id": "cf",
+      "field": "estimate_total",
+      "status": "absent"
+    },
+    {
+      "doc_id": "pr",
+      "field": "incident_date",
+      "status": "present",
+      "value": "2026-09-02",
+      "form": "labeled_iso",
+      "mentions": [
+        {
+          "start": 112,
+          "end": 122,
+          "quote": "2026-09-02"
+        }
+      ]
+    },
+    {
+      "doc_id": "pr",
+      "field": "vehicle_vin",
+      "status": "present",
+      "value": "1SYNCF2A5RK100011",
+      "form": "labeled_iso",
+      "mentions": [
+        {
+          "start": 192,
+          "end": 209,
+          "quote": "1SYNCF2A5RK100011"
+        }
+      ]
+    },
+    {
+      "doc_id": "pr",
+      "field": "estimate_total",
+      "status": "absent"
+    },
+    {
+      "doc_id": "re",
+      "field": "incident_date",
+      "status": "present",
+      "value": "2026-09-02",
+      "form": "labeled_iso",
+      "mentions": [
+        {
+          "start": 144,
+          "end": 154,
+          "quote": "2026-09-02"
+        }
+      ]
+    },
+    {
+      "doc_id": "re",
+      "field": "vehicle_vin",
+      "status": "present",
+      "value": "1SYNCF2A5RK100011",
+      "form": "labeled_iso",
+      "mentions": [
+        {
+          "start": 111,
+          "end": 128,
+          "quote": "1SYNCF2A5RK100011"
+        }
+      ]
+    },
+    {
+      "doc_id": "re",
+      "field": "estimate_total",
+      "status": "present",
+      "value": "1430.00",
+      "form": "labeled_iso",
+      "mentions": [
+        {
+          "start": 292,
+          "end": 300,
+          "quote": "1,430.00"
+        }
+      ]
+    }
+  ],
+  "distractors": [],
+  "must_not_extract": [],
+  "expected_findings": []
+}

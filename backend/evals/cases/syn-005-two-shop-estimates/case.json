@@ -1,0 +1,206 @@
+{
+  "schema_version": "case/1",
+  "case_id": "syn-005-two-shop-estimates",
+  "revision": 1,
+  "split": "dev",
+  "tags": [
+    "estimate_difference",
+    "table",
+    "distractor"
+  ],
+  "authoring": {
+    "author": "claude-agent (Slice 2)",
+    "reviewed_by": null,
+    "parser_consulted": false,
+    "notes": "Two shops quote different totals. Shop B uses a text table with subtotal, tax, and total rows. A difference between shops is a review prompt, not an error."
+  },
+  "claim": {
+    "policy_ref": "SYN-PA-500055",
+    "incident_date": "2026-06-21"
+  },
+  "documents": [
+    {
+      "doc_id": "cf",
+      "file": "cf.txt",
+      "filename": "claim_form_syn005.txt",
+      "document_type": "claim_form",
+      "sha256": "ce13d6849436dac09f9f8816bd4b3c801c6a0865178994d7180e9518b5470e7f"
+    },
+    {
+      "doc_id": "pr",
+      "file": "pr.txt",
+      "filename": "police_report_syn005.txt",
+      "document_type": "police_report",
+      "sha256": "0fbc65a766f46eef00db23ca6dcfdbe03f7d6a5a1d56568ff84e79e322409668"
+    },
+    {
+      "doc_id": "re_a",
+      "file": "re_a.txt",
+      "filename": "estimate_shop_a_syn005.txt",
+      "document_type": "repair_estimate",
+      "sha256": "bbca5efe76a6884e991c56d58e26bf10b10b2aba94ea7292c567b5e446b8c11e"
+    },
+    {
+      "doc_id": "re_b",
+      "file": "re_b.txt",
+      "filename": "estimate_shop_b_syn005.txt",
+      "document_type": "repair_estimate",
+      "sha256": "708538f6f1bb24c90d1e15373eba9ac06b458c8d6c9b2c961ddcb345e5d5d9f0"
+    }
+  ],
+  "gold_facts": [
+    {
+      "doc_id": "cf",
+      "field": "incident_date",
+      "status": "present",
+      "value": "2026-06-21",
+      "form": "labeled_iso",
+      "mentions": [
+        {
+          "start": 108,
+          "end": 118,
+          "quote": "2026-06-21"
+        }
+      ]
+    },
+    {
+      "doc_id": "cf",
+      "field": "vehicle_vin",
+      "status": "present",
+      "value": "6SYNWD3G9WE500055",
+      "form": "labeled_iso",
+      "mentions": [
+        {
+          "start": 124,
+          "end": 141,
+          "quote": "6SYNWD3G9WE500055"
+        }
+      ]
+    },
+    {
+      "doc_id": "cf",
+      "field": "estimate_total",
+      "status": "absent"
+    },
+    {
+      "doc_id": "pr",
+      "field": "incident_date",
+      "status": "present",
+      "value": "2026-06-21",
+      "form": "labeled_iso",
+      "mentions": [
+        {
+          "start": 112,
+          "end": 122,
+          "quote": "2026-06-21"
+        }
+      ]
+    },
+    {
+      "doc_id": "pr",
+      "field": "vehicle_vin",
+      "status": "present",
+      "value": "6SYNWD3G9WE500055",
+      "form": "labeled_iso",
+      "mentions": [
+        {
+          "start": 128,
+          "end": 145,
+          "quote": "6SYNWD3G9WE500055"
+        }
+      ]
+    },
+    {
+      "doc_id": "pr",
+      "field": "estimate_total",
+      "status": "absent"
+    },
+    {
+      "doc_id": "re_a",
+      "field": "incident_date",
+      "status": "absent"
+    },
+    {
+      "doc_id": "re_a",
+      "field": "vehicle_vin",
+      "status": "present",
+      "value": "6SYNWD3G9WE500055",
+      "form": "labeled_iso",
+      "mentions": [
+        {
+          "start": 111,
+          "end": 128,
+          "quote": "6SYNWD3G9WE500055"
+        }
+      ]
+    },
+    {
+      "doc_id": "re_a",
+      "field": "estimate_total",
+      "status": "present",
+      "value": "1880.00",
+      "form": "labeled_iso",
+      "mentions": [
+        {
+          "start": 298,
+          "end": 306,
+          "quote": "1,880.00"
+        }
+      ]
+    },
+    {
+      "doc_id": "re_b",
+      "field": "incident_date",
+      "status": "absent"
+    },
+    {
+      "doc_id": "re_b",
+      "field": "vehicle_vin",
+      "status": "present",
+      "value": "6SYNWD3G9WE500055",
+      "form": "labeled_iso",
+      "mentions": [
+        {
+          "start": 134,
+          "end": 151,
+          "quote": "6SYNWD3G9WE500055"
+        }
+      ]
+    },
+    {
+      "doc_id": "re_b",
+      "field": "estimate_total",
+      "status": "present",
+      "value": "2417.55",
+      "form": "table",
+      "mentions": [
+        {
+          "start": 601,
+          "end": 609,
+          "quote": "2,417.55"
+        }
+      ]
+    }
+  ],
+  "distractors": [
+    {
+      "start": 499,
+      "end": 507,
+      "quote": "2,270.00",
+      "doc_id": "re_b",
+      "field": "estimate_total",
+      "why": "Pre-tax subtotal row; the final total is the Total row."
+    }
+  ],
+  "must_not_extract": [],
+  "expected_findings": [
+    {
+      "code": "ESTIMATE_TOTAL_VARIANCE",
+      "field": "estimate_total",
+      "values": [
+        "1880.00",
+        "2417.55"
+      ]
+    }
+  ]
+}
