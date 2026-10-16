@@ -100,6 +100,6 @@ Run commands from `backend/`.
 5. Replace `"expected_findings": "todo"` with the list. If unsure, run the lint: it prints the derived list.
 6. Run `.venv/bin/python -m evals.anchor <case_id>`. It fills `start`, `end`, and `sha256`. It stops with an error if a quote is not found or is ambiguous.
 7. Run `.venv/bin/python -m evals.lint` and `.venv/bin/pytest -q tests/test_case_files.py`.
-8. Remove the `todo` tag from `tags`. Update `authoring.author` and `authoring.notes`.
+8. Add behavior tags to `tags` if they apply (for example `distractor`, `narrative`). Set `authoring.author` to `user` and update `authoring.notes`.
 
 When no `todo` cases remain, `test_all_cases_labeled` passes instead of skipping.
