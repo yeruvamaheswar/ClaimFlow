@@ -39,3 +39,11 @@ Build an evidence-aware, auditable **synthetic-data-only** insurance workflow de
 ## Working style
 
 Explain the purpose, data flow, and failure modes of each meaningful change. Favor readable code and interfaces over clever frameworks. Keep new changes small and independently testable.
+
+## Portfolio ship notes
+
+This project appears on Uma's portfolio site (repo `uma-portfolio`, page `/work/claimflow`). When you ship something significant here, add an entry at the top of `SHIPPED.md` in this repo, in the same commit or the next one.
+
+Significant means: a release or tag; a new user-facing feature live in production; a new public link (demo, video, live URL); or a change that makes the portfolio's claims about this project wrong (status, stack, limits, links, screenshots). Not: refactors, fixes, tests, docs, or dependency bumps.
+
+Write facts only, with evidence (commit SHA, release, URL, or test output). Do not edit `uma-portfolio` from this repo. Uma runs the portfolio update, or its weekly scan picks the entry up. The format is in `SHIPPED.md`. Never name the insurer mentioned in the README in a ship note.
